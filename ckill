@@ -41,7 +41,7 @@ from psutil import Process, NoSuchProcess, TimeoutExpired, wait_procs
 
 __author__ = 'KuraLabs S.R.L'
 __email__ = 'info@kuralabs.io'
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 
 
 log = logging.getLogger(__name__)
@@ -86,7 +86,7 @@ def main(pid, timeout_s, **kwargs):
             process.pid,
         )
     )
-    subprocesses = process.subprocesses(recursive=True)
+    subprocesses = process.children(recursive=True)
     log.info('Process PID {} has {} subprocesses.'.format(
         process.pid,
         len(subprocesses),
